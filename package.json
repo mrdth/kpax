@@ -4,7 +4,8 @@
   },
   "dependencies": {
     "discord.js": "^12.0.2",
-    "enmap": "^5.2.4"
+    "enmap": "^5.2.4",
+    "youtube-search": "^1.1.4"
   },
   "devDependencies": {
     "chai": "^4.2.0",
