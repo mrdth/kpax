@@ -8,7 +8,10 @@ module.exports = (item, requestor = null) => {
     .setThumbnail(item.thumbnails.default.url);
 
   if (requestor) {
-    embed.setFooter(`Added by ${requestor.username}`, requestor.avatarURL({ size: 16 }));
+    embed.setFooter(
+      `Added by ${requestor.username}`,
+      requestor.avatarURL({ size: 16 })
+    );
   }
 
   return embed;
