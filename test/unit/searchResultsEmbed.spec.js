@@ -1,7 +1,7 @@
 'use strict';
 
 const expect = require('chai').expect;
-const embed = require('../../utils/searchResultsEmbed');
+const embed = require('../../utils/embeds/searchResultsEmbed');
 const results = require('../data/search_dr_feelgood');
 
 describe('Search Results Embed', () => {

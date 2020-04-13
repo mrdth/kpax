@@ -1,10 +1,11 @@
 const doSearch = require('../utils/search');
-const resultsEmbed = require('../utils/searchResultsEmbed');
-const errorEmbed = require('../utils/errorEmbed');
-const youtubeEmbed = require('../utils/youtubeItemEmbed');
+const resultsEmbed = require('../utils/embeds/searchResultsEmbed');
+const errorEmbed = require('../utils/embeds/errorEmbed');
+const youtubeEmbed = require('../utils/embeds/youtubeItemEmbed');
 const awaitReply = require('../utils/awaitReply');
 
 exports.run = (client, message, args) => {
+  console.log(message.author);//
   const searchTerm = args.join(' ');
   console.log(`Searching for: ${searchTerm}`);
   doSearch(searchTerm, { key: client.config.youtube_key }).then(async response => {
