@@ -1,7 +1,7 @@
 'use strict';
 
 const expect = require('chai').expect;
-const embed = require('../../utils/createEmbed');
+const embed = require('../../utils/searchResultsEmbed');
 const results = require('../data/search_dr_feelgood');
 
 describe('Search Results Embed', () => {
@@ -13,24 +13,23 @@ describe('Search Results Embed', () => {
     const expected = {
       title: undefined,
       type: 'rich',
-      description: 'Results for "Dr Feelgood"',
+      fields: [],
       url: undefined,
       timestamp: null,
       color: 65280,
       thumbnail: null,
-      image: null,
-      author: null,
-      footer: null
+      image: null
     };
 
     const result = embed('Dr Feelgood', results).toJSON();
 
     for (const [key, value] of Object.entries(expected)) {
       expect(result).to.haveOwnProperty(key);
-      expect(result[key]).to.equal(value);
+      expect(result[key]).to.deep.equal(value);
     }
 
-    expect(result.fields).to.be.a('array');
-    expect(result.fields.length).to.equal(10);
+    expect(result.author.name).to.equal('Results for "Dr Feelgood"');
+
+    expect(result.description.split('\r\n').length).to.equal(10);
   });
 });

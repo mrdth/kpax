@@ -1,7 +1,7 @@
 'use strict';
 
 const expect = require('chai').expect;
-const Search = require('../../commands/Search');
+const Search = require('../../commands/search');
 
 describe('Search module', () => {
   describe('"run"', () => {
