@@ -1,12 +1,16 @@
 const doSearch = require('../utils/search');
-const createEmbed = require('../utils/searchResultsEmbed');
+const resultsEmbed = require('../utils/searchResultsEmbed');
 const errorEmbed = require('../utils/errorEmbed');
+const youtubeEmbed = require('../utils/youtubeItemEmbed');
+const awaitReply = require('../utils/awaitReply');
 
 exports.run = (client, message, args) => {
   const searchTerm = args.join(' ');
   console.log(`Searching for: ${searchTerm}`);
-  doSearch(searchTerm, { key: client.config.youtube_key }).then(response => {
-    message.channel.send(createEmbed(searchTerm, response.results));
+  doSearch(searchTerm, { key: client.config.youtube_key }).then(async response => {
+    const choice = await awaitReply(message, resultsEmbed(searchTerm, response.results));
+
+    message.channel.send(youtubeEmbed(response.results[choice - 1], message.author));
   }).catch((err) => {
     console.log(err);
     message.channel.send(errorEmbed('Error: Nothing found'));
