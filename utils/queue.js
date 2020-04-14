@@ -22,7 +22,9 @@ const getItemsPaginated = (page = 1, pageLength = 10) => {
   };
 };
 
-const removeItem = (index) => {};
+const removeItem = (index) => {
+  items.splice(index, 1);
+};
 
 const reset = () => {
   while (items.length) items.shift();

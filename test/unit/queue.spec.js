@@ -138,6 +138,16 @@ describe('Queue util', () => {
         expect(Queue).to.have.property('removeItem');
         expect(Queue.removeItem).to.be.a('function');
       });
+
+      it('should remove the specified item from the queue', () => {
+        Queue.reset();
+        [1, 2, 3, 4, 5].forEach(item => Queue.addItem(item));
+
+        expect(Queue.items).to.be.length(5);
+        Queue.removeItem(1);
+        expect(Queue.items).to.be.length(4);
+        expect(Queue.items).to.deep.equal([1, 3, 4, 5]);
+      });
     });
 
     describe('reset', () => {
