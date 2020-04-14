@@ -1,12 +1,16 @@
 {
-    "extends": [
-        "standard"
-    ],
-    "rules": {
-        "semi": [2, "always"]
-    },
-    "env": {
-      "node": true,
-      "mocha": true
+  "extends": [
+    "standard",
+    "plugin:chai-friendly/recommended"
+  ],
+  "rules": {
+    "semi": [2, "always"]
+  },
+  "plugins": [
+    "eslint-plugin-chai-friendly"
+  ],
+  "env": {
+    "node": true,
+    "mocha": true
   }
 }
