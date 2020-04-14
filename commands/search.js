@@ -10,7 +10,6 @@ exports.run = (client, message, args) => {
         message,
         embeds.searchResultsEmbed(searchTerm, response.results)
       ));
-      // choice = parseInt(choice);
 
       if (!isNaN(choice) && choice > 0) {
         message.channel.send(
@@ -25,4 +24,10 @@ exports.run = (client, message, args) => {
       console.log(err);
       message.channel.send(embeds.errorEmbed('Error: Nothing found'));
     });
+};
+
+exports.help = {
+  name: 'search',
+  description: 'Search youtube for an artist or song',
+  usage: 'search [search term]'
 };
