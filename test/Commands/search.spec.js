@@ -16,19 +16,19 @@ describe('Search module', () => {
     });
 
     it('should have a name', () => {
-      expect(Search.help.name).to.exist;
+      expect(Search.help).to.haveOwnProperty('name');
       expect(Search.help.name).to.be.a('string');
       expect(Search.help.name).to.not.equal('');
     });
 
     it('should have a description', () => {
-      expect(Search.help.description).to.exist;
+      expect(Search.help).to.haveOwnProperty('description');
       expect(Search.help.description).to.be.a('string');
       expect(Search.help.description).to.not.equal('');
     });
 
     it('should have a usage section', () => {
-      expect(Search.help.usage).to.exist;
+      expect(Search.help).to.haveOwnProperty('usage');
       expect(Search.help.usage).to.be.a('string');
       expect(Search.help.usage).to.not.equal('');
     });

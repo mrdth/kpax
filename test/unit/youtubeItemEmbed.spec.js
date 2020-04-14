@@ -3,7 +3,6 @@
 const expect = require('chai').expect;
 const embed = require('../../utils/embeds/youtubeItemEmbed');
 const itemDetails = require('../data/search_dr_feelgood')[0];
-console.log(itemDetails);
 
 describe('Youtube Item Embed', () => {
   it('should export a function', () => {
