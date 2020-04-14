@@ -7,7 +7,12 @@ module.exports = [
     channelId: 'UCq2g_Vcu3J1OwNRmdTNoxYA',
     channelTitle: 'Mötley Crüe',
     title: 'Mötley Crüe - Dr. Feelgood (Official Music Video)',
-    description: "Official music video for 'Dr. Feelgood' by Mötley Crüe. Stream or Buy 'The Dirt Soundtrack' - https://motleycrue.ffm.to/thedirt Watch 'The Dirt' on Netflix! Follow ..."
+    description: "Official music video for 'Dr. Feelgood' by Mötley Crüe. Stream or Buy 'The Dirt Soundtrack' - https://motleycrue.ffm.to/thedirt Watch 'The Dirt' on Netflix! Follow ...",
+    thumbnails: {
+      default: {
+        url: 'https://i.ytimg.com/vi/trGX3ET3jTQ/default.jpg'
+      }
+    }
   },
   {
     id: 'Yp2DvPKh118',

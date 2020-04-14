@@ -3,7 +3,7 @@
   "description": "Yet another discord music bot",
   "version": "0.1",
   "scripts": {
-    "test": "mocha test/**/**.spec.js"
+    "test": "mocha 'test/**/**.spec.js'"
   },
   "dependencies": {
     "discord.js": "^12.0.2",
