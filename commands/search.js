@@ -12,6 +12,8 @@ exports.run = (client, message, args) => {
       ));
 
       if (!isNaN(choice) && choice > 0) {
+        client.queue.addItem(response.results[choice - 1]);
+
         message.channel.send(
           embeds.youtubeItemEmbed(
             response.results[choice - 1],
