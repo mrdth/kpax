@@ -9,17 +9,13 @@ describe('Search util', () => {
     expect(Search).to.be.a('function');
   });
   it('should return an array', () => {
-    Search.__set__('search', require('../mocks/youtube-search'));
-    const result = Search('Dr feelgood', { key: 'test key' });
+    Search.__set__('yt', require('../mocks/youtube-search'));
+    const result = Search('Dr feelgood');
     expect(result).to.be.a('array');
     expect(result).to.deep.equal(
       [
         'Dr feelgood',
-        {
-          key: 'test key',
-          maxResults: 10,
-          type: 'video'
-        }
+        10
       ]
     );
   });

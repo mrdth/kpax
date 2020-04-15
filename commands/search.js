@@ -8,15 +8,15 @@ exports.run = (client, message, args) => {
     .then(async response => {
       const choice = parseInt(await awaitReply(
         message,
-        embeds.searchResultsEmbed(searchTerm, response.results)
+        embeds.searchResultsEmbed(searchTerm, response)
       ));
 
       if (!isNaN(choice) && choice > 0) {
-        client.queue.addItem(response.results[choice - 1]);
+        client.queue.addItem(response[choice - 1]);
 
         message.channel.send(
           embeds.youtubeItemEmbed(
-            response.results[choice - 1],
+            response[choice - 1],
             message.author
           )
         );
