@@ -15,15 +15,17 @@ exports.run = (client, message, args) => {
       if (!isNaN(choice) && choice > 0) {
         console.log(response[choice - 1]);
 
-        queueItem(response[choice - 1], message)
-          .then(item => {
-            client.queue.addItem(item);
+        response[choice - 1].fetch().then(video => {
+          queueItem(video, message)
+            .then(item => {
+              client.queue.addItem(item);
 
-            message.channel.send(`:white_check_mark: **${item.title}** successfully added!`);
-            message.channel.send(
-              embeds.youtubeItemEmbed(item)
-            );
-          });
+              message.channel.send(`:white_check_mark: **${item.title}** successfully added!`);
+              message.channel.send(
+                embeds.youtubeItemEmbed(item)
+              );
+            });
+        });
       }
     })
     .catch((err) => {
