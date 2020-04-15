@@ -4,12 +4,12 @@ const fs = require('fs');
 
 const client = new Discord.Client();
 client.config = require('./config');
-client.queue = require('./utils/queue');
+client.queue = require('./src/structures/queue');
 
-fs.readdir('./events/', (err, files) => {
+fs.readdir('./src/events/', (err, files) => {
   if (err) return console.error(err);
   files.forEach(file => {
-    const event = require(`./events/${file}`);
+    const event = require(`./src/events/${file}`);
     const eventName = file.split('.')[0];
     client.on(eventName, event.bind(null, client));
   });
@@ -17,11 +17,11 @@ fs.readdir('./events/', (err, files) => {
 
 client.commands = new Enmap();
 
-fs.readdir('./commands/', (err, files) => {
+fs.readdir('./src/commands/', (err, files) => {
   if (err) return console.error(err);
   files.forEach(file => {
     if (!file.endsWith('.js')) return;
-    const props = require(`./commands/${file}`);
+    const props = require(`./src/commands/${file}`);
     const commandName = file.split('.')[0];
     console.log(`Attempting to load command ${commandName}`);
     client.commands.set(commandName, props);
