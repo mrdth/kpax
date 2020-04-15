@@ -1,7 +1,7 @@
 'use strict';
 
 const expect = require('chai').expect;
-const embed = require('../../utils/embeds/youtubeItemEmbed');
+const embed = require('../../src/utils/embeds/youtubeItemEmbed');
 const itemDetails = require('../data/search_dr_feelgood')[0];
 
 describe('Youtube Item Embed', () => {

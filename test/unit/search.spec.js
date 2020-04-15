@@ -2,7 +2,7 @@
 
 const rewire = require('rewire');
 const expect = require('chai').expect;
-const Search = rewire('../../utils/search');
+const Search = rewire('../../src/utils/search');
 
 describe('Search util', () => {
   it('should export a function', () => {

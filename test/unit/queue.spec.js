@@ -1,7 +1,7 @@
 'use strict';
 
 const expect = require('chai').expect;
-const Queue = require('../../utils/queue');
+const Queue = require('../../src/structures/queue');
 
 const getFilledArray = (itemCount, offset = 0) => Array.from({ length: itemCount }, (val, idx) => idx + offset);
 
