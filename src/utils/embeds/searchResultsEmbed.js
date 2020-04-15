@@ -1,4 +1,5 @@
 const { MessageEmbed } = require('discord.js');
+const htmlEntities = require('../htmlEntities');
 
 const getVideoURL = (id) => {
   return 'https://www.youtube.com/watch?v=' + id;
@@ -7,7 +8,7 @@ const getVideoURL = (id) => {
 module.exports = (searchTerm, searchResults) => {
   const links = [];
   searchResults.forEach((item, idx) => {
-    links.push(`\`${idx + 1}\` [${item.title}](${getVideoURL(item.id)})`);
+    links.push(`\`${idx + 1}\` [${htmlEntities.decode(item.title)}](${getVideoURL(item.id)})`);
   });
 
   return new MessageEmbed()
