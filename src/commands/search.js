@@ -1,6 +1,7 @@
 const doSearch = require('../utils/search');
 const embeds = require('../utils/embeds');
 const awaitReply = require('../utils/awaitReply');
+const queueItem = require('../structures/queueItem');
 
 exports.run = (client, message, args) => {
   const searchTerm = args.join(' ');
@@ -12,14 +13,17 @@ exports.run = (client, message, args) => {
       ));
 
       if (!isNaN(choice) && choice > 0) {
-        client.queue.addItem(response[choice - 1]);
+        console.log(response[choice - 1]);
 
-        message.channel.send(
-          embeds.youtubeItemEmbed(
-            response[choice - 1],
-            message.author
-          )
-        );
+        queueItem(response[choice - 1], message)
+          .then(item => {
+            client.queue.addItem(item);
+
+            message.channel.send(`:white_check_mark: **${item.title}** successfully added!`);
+            message.channel.send(
+              embeds.youtubeItemEmbed(item)
+            );
+          });
       }
     })
     .catch((err) => {

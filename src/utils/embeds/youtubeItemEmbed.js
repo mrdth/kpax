@@ -4,19 +4,16 @@ const getVideoURL = (id) => {
   return 'https://www.youtube.com/watch?v=' + id;
 };
 
-module.exports = (item, requestor = null) => {
+module.exports = (item) => {
   const embed = new MessageEmbed()
     .setColor('0x00ff00')
     .setTitle(item.title)
     .setURL(getVideoURL(item.id))
-    .setThumbnail(item.thumbnails.default.url);
-
-  if (requestor) {
-    embed.setFooter(
-      `Added by ${requestor.username}`,
-      requestor.avatarURL({ size: 16 })
+    .setThumbnail(item.thumbnailURL)
+    .setFooter(
+      `Added by ${item.user.name}`,
+      item.user.avatarURL
     );
-  }
 
   return embed;
 };

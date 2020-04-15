@@ -12,11 +12,7 @@ module.exports = [
     id: 'trGX3ET3jTQ',
     title: 'Mötley Crüe - Dr. Feelgood (Official Music Video)',
     description: "Official music video for 'Dr. Feelgood' by Mötley Crüe. Stream or Buy 'The Dirt Soundtrack' - https://motleycrue.ffm.to/thedirt Watch 'The Dirt' on Netflix! Follow ...",
-    thumbnails: {
-      default: {
-        url: 'https://i.ytimg.com/vi/trGX3ET3jTQ/default.jpg'
-      }
-    },
+    thumbnailURL: 'https://i.ytimg.com/vi/trGX3ET3jTQ/default.jpg',
     publishedAt: '2019-03-01T20:47:36.000Z',
     channel: {
       type: 'channel',
