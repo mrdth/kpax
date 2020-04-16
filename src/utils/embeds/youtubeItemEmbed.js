@@ -5,7 +5,7 @@ const getVideoURL = (id) => {
 };
 
 module.exports = (item) => {
-  const embed = new MessageEmbed()
+  return new MessageEmbed()
     .setColor('0x00ff00')
     .setTitle(item.title)
     .setURL(getVideoURL(item.id))
@@ -14,6 +14,4 @@ module.exports = (item) => {
       `Added by ${item.user.name}`,
       item.user.avatarURL
     );
-
-  return embed;
 };

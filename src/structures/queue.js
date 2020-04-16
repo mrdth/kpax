@@ -22,6 +22,15 @@ const getItemsPaginated = (page = 1, pageLength = 10) => {
   };
 };
 
+const getFormattedTotalTime = () => {
+  let total = 0;
+  items.forEach(item => { total += item.duration; });
+
+  const date = new Date(0);
+  date.setSeconds(total);
+  return date.toISOString().substr(11, 8);
+};
+
 const removeItem = (index) => {
   items.splice(index, 1);
 };
@@ -35,6 +44,7 @@ module.exports = {
   addItem,
   getNextItem,
   getItemsPaginated,
+  getFormattedTotalTime,
   removeItem,
   reset
 };

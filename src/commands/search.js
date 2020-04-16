@@ -13,8 +13,6 @@ exports.run = (client, message, args) => {
       ));
 
       if (!isNaN(choice) && choice > 0) {
-        console.log(response[choice - 1]);
-
         response[choice - 1].fetch().then(video => {
           queueItem(video, message)
             .then(item => {

@@ -8,8 +8,15 @@ const getMessageAuthorInfo = (message) => {
   });
 };
 
-const formatDuration = (hours, minutes, seconds) => {
-  return `${hours ? ('0' + hours).slice(-2) + ':' : ''}${minutes ? ('0' + minutes).slice(-2) : '00'}:${('0' + seconds).slice(-2)}`;
+const durationToSeconds = (duration) => {
+  return duration.seconds + (60 * duration.minutes) + (60 * 60 * duration.hours) + (24 * 60 * 60 * duration.days);
+};
+
+const formattedDuration = (duration) => {
+  let text = `${duration.hours ? duration.hours + ':' : ''}`;
+  text += `${(duration.hours || duration.minutes) ? String(duration.minutes).padStart(2, '0') + ':' : ''}`;
+  text += `${String(duration.seconds).padStart(2, '0')}`;
+  return text;
 };
 
 const item = (data, message) => {
@@ -18,7 +25,8 @@ const item = (data, message) => {
       id: data.id,
       title: data.title,
       thumbnailURL: data.thumbnails.default.url,
-      duration: formatDuration(data.duration.hours, data.duration.minutes, data.duration.seconds),
+      duration: durationToSeconds(data.duration),
+      formattedDuration: formattedDuration(data.duration),
       user: user
     };
   });
