@@ -3,7 +3,7 @@
 const expect = require('chai').expect;
 const Help = require('../../src/commands/help');
 
-describe('Help module', () => {
+describe('Help Command', () => {
   describe('"run"', () => {
     it('should export a function', () => {
       expect(Help.run).to.be.a('function');
