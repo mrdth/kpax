@@ -3,12 +3,14 @@ exports.run = (client, message, args) => {
   if (!args[0]) {
     // Here we have to get the command names only, and we use that array to get the longest name.
     // This make the help commands "aligned" in the output.
-    const commandNames = client.commands.keyArray();
+    const publicCommands = client.commands.filter(command => command.public);
+    const commandNames = publicCommands.keyArray();
+
     const longest = commandNames.reduce((long, str) => Math.max(long, str.length), 0);
 
     let output = `= Command List =\n\n[Use ${client.config.prefix}help <commandname> for details]\n\n`;
 
-    const sorted = client.commands.array().sort((a, b) => a.help.name > b.help.name);
+    const sorted = publicCommands.array().sort((a, b) => a.help.name > b.help.name);
     sorted.forEach(command => {
       output += `${client.config.prefix}${command.help.name}${' '.repeat(longest - command.help.name.length)} :: ${command.help.description}\n`;
     });
@@ -29,3 +31,5 @@ exports.help = {
   description: 'Displays help for available commands.',
   usage: 'help [command]'
 };
+
+exports.public = true;

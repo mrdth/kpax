@@ -37,3 +37,5 @@ exports.help = {
   description: 'Search youtube for an artist or song',
   usage: 'search [search term]'
 };
+
+exports.public = true;

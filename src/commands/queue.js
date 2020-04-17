@@ -39,3 +39,5 @@ exports.help = {
   description: 'Show the current queue',
   usage: 'queue'
 };
+
+exports.public = true;

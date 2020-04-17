@@ -16,3 +16,5 @@ exports.help = {
   description: 'Invite the bot to join your current voice channel.',
   usage: 'join'
 };
+
+exports.public = true;
