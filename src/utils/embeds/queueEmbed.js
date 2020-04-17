@@ -1,4 +1,5 @@
 const { MessageEmbed } = require('discord.js');
+const plural = require('plur');
 const htmlEntities = require('../htmlEntities');
 
 const getVideoURL = (id) => {
@@ -13,7 +14,7 @@ module.exports = (queue, page) => {
   });
   return new MessageEmbed()
     .setColor('0x00ff00')
-    .setTitle(`Music Queue (${queue.items.length} tracks - ${queue.getFormattedTotalTime()})`)
+    .setTitle(`Music Queue (${queue.items.length} ${plural('track', queue.items.length)} - ${queue.getFormattedTotalTime()})`)
     .setDescription(links.join('\r\n'))
     .setFooter((page.lastPage !== 1) ? page.pageText : '');
 };
