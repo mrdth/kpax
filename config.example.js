@@ -2,6 +2,7 @@
 const config = {
   youtube_key: '',
   maxPlaylistItems: 15, // Maximum items to be queued from a playlist URL
+  volume: 50,
   token: '',
   prefix: '!'
 };
