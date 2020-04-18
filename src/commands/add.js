@@ -1,8 +1,8 @@
 const parser = require('../utils/youtubeURLParser');
 const getYoutubeItem = require('../utils/getYouTubeVideo');
 const getYoutubePlaylist = require('../utils/getYouTubePlaylist');
-
 const embeds = require('../utils/embeds');
+const awaitReply = require('../utils/awaitReply');
 const queueItem = require('../structures/queueItem');
 
 exports.run = (client, message, args) => {
@@ -16,10 +16,32 @@ exports.run = (client, message, args) => {
         client.queue.addItem(item);
 
         message.channel.send(`:white_check_mark: **${item.title}** successfully added!`);
-        // message.channel.send(
-        //   embeds.youtubeItemEmbed(item)
-        // );
       });
+  };
+
+  const handleMixedUrl = () => {
+    awaitReply(
+      message,
+      'What do you want me to queue from that link?  The [s]ong, or the [p]laylist?'
+    ).then(choice => {
+      switch (choice.toLowerCase()) {
+        case 's':
+          getYoutubeItem(item.videoId).then(handleVideo);
+          break;
+
+        case 'p':
+          getYoutubePlaylist(item.listId, client.config.maxPlaylistItems).then(items => {
+            items.forEach(async item => {
+              await sleep(500);
+              getYoutubeItem(item.id).then(handleVideo);
+            });
+          }).catch(console.log);
+          break;
+      }
+    }).catch((err) => {
+      console.log(err);
+      message.channel.send(embeds.errorEmbed('Error: Problem adding playlist'));
+    });
   };
 
   const item = parser.parseURL(args[0]);
@@ -36,6 +58,10 @@ exports.run = (client, message, args) => {
           getYoutubeItem(item.id).then(handleVideo);
         });
       });
+      break;
+
+    case 'mixed':
+      handleMixedUrl();
       break;
   }
 };

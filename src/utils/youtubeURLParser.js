@@ -23,12 +23,13 @@ exports.parseURL = (url) => {
       if (parsed.pathname === '/watch') {
         if (!idRegex.test(parsed.searchParams.get('v'))) return {};
 
-        // if (parsed.searchParams.has('list')) {
-        //   return {
-        //     type: 'playlist',
-        //     id: parsed.searchParams.get('list')
-        //   };
-        // }
+        if (parsed.searchParams.has('list')) {
+          return {
+            type: 'mixed',
+            videoId: parsed.searchParams.get('v'),
+            listId: parsed.searchParams.get('list')
+          };
+        }
 
         return {
           type: 'video',
