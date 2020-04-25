@@ -1,4 +1,4 @@
-const config = require('../../config');
+const config = require('~root/config');
 const YouTube = require('simple-youtube-api');
 const yt = new YouTube(config.youtube_key);
 

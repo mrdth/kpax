@@ -1,7 +1,7 @@
-const doSearch = require('../utils/search');
-const embeds = require('../utils/embeds');
-const awaitReply = require('../utils/awaitReply');
-const queueItem = require('../structures/queueItem');
+const doSearch = require('~utils/search');
+const embeds = require('~utils/embeds');
+const awaitReply = require('~utils/awaitReply');
+const queueItem = require('~structures/queueItem');
 
 exports.run = (client, message, args) => {
   const searchTerm = args.join(' ');

@@ -1,7 +1,7 @@
 'use strict';
 
 const expect = require('chai').expect;
-const Leave = require('../../src/commands/leave');
+const Leave = require('~commands/leave');
 
 describe('Leave Command', () => {
   describe('"run"', () => {

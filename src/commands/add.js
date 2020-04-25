@@ -1,9 +1,9 @@
-const parser = require('../utils/youtubeURLParser');
-const getYoutubeItem = require('../utils/getYouTubeVideo');
-const getYoutubePlaylist = require('../utils/getYouTubePlaylist');
-const embeds = require('../utils/embeds');
-const awaitReply = require('../utils/awaitReply');
-const queueItem = require('../structures/queueItem');
+const parser = require('~utils/youtubeURLParser');
+const getYoutubeItem = require('~utils/getYouTubeVideo');
+const getYoutubePlaylist = require('~utils/getYouTubePlaylist');
+const embeds = require('~utils/embeds');
+const awaitReply = require('~utils/awaitReply');
+const queueItem = require('~structures/queueItem');
 
 exports.run = (client, message, args) => {
   const sleep = (milliseconds) => {

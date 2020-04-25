@@ -1,7 +1,7 @@
 'use strict';
 
 const expect = require('chai').expect;
-const Help = require('../../src/commands/help');
+const Help = require('~commands/help');
 
 describe('Help Command', () => {
   describe('"run"', () => {

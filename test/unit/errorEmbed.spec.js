@@ -1,7 +1,7 @@
 'use strict';
 
 const expect = require('chai').expect;
-const embed = require('../../src/utils/embeds/errorEmbed');
+const embed = require('~utils/embeds/errorEmbed');
 
 describe('Error Embed', () => {
   it('should export a function', () => {

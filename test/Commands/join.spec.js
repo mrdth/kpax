@@ -1,7 +1,7 @@
 'use strict';
 
 const expect = require('chai').expect;
-const Join = require('../../src/commands/join');
+const Join = require('~commands/join');
 
 describe('Join Command', () => {
   describe('"run"', () => {

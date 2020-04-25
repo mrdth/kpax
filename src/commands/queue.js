@@ -1,4 +1,4 @@
-const embed = require('../utils/embeds/queueEmbed');
+const embed = require('~utils/embeds/queueEmbed');
 
 exports.run = (client, message, args) => {
   let currentPage = 1;

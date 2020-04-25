@@ -1,7 +1,7 @@
 'use strict';
 
 const expect = require('chai').expect;
-const Volume = require('../../src/commands/volume');
+const Volume = require('~commands/volume');
 
 describe('Volume Command', () => {
   describe('"run"', () => {
